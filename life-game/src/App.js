@@ -1,22 +1,17 @@
 import React from 'react';
 import './App.css';
 
+import Grid from './components/grid/Grid';
+import About from './components/about/About';
+
 function App() {
   return (
     <div className="App">
       <header className="App-header">
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
+        <h1>Conway's Game of Life</h1>
       </header>
+      <Grid />
+      <About />
     </div>
   );
 }
