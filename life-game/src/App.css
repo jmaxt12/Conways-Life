@@ -50,3 +50,8 @@ table {
 .App {
   text-align: center;
 }
+
+.topRow {
+	display: flex;
+	justify-content: center;
+}
