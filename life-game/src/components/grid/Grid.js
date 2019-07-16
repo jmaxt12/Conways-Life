@@ -6,7 +6,7 @@ import './Grid.css';
 class Grid extends Component {
   state = {
     cells: [],
-    interval: 100,    
+    interval: 100,
     isRunning: false,
     CELL_SIZE: 10,
     WIDTH: 500,
@@ -56,13 +56,13 @@ class Grid extends Component {
   }
 
   handleClick = event => {
+    console.log('YO YO YO');
     const elemOffset = this.getElementOffset();
     const offsetX = event.clientX - elemOffset.x;
     const offsetY = event.clientY - elemOffset.y;
     const x = Math.floor(offsetX / this.state.CELL_SIZE);
     const y = Math.floor(offsetY / this.state.CELL_SIZE);
-    console.log('whats up!')
-    console.log(x, y)
+    console.log(x, y);
 
     if (x >= 0 && x <= this.cols && y >= 0 && y <= this.rows) {
       this.board[y][x] = !this.board[y][x];
@@ -73,18 +73,33 @@ class Grid extends Component {
     });
   };
 
-  runGame = () => {    
-      this.setState({ isRunning: true });  
+  runGame = () => {
+    this.setState({ isRunning: true });
+    this.runIteration();
+  };
+
+  stopGame = () => {
+    this.setState({ isRunning: false });
+    if (this.timeoutHandler) {
+      window.clearTimeout(this.timeoutHandler);
+      this.timeoutHandler = null;
     }
+  };
 
-    stopGame = () => {    
-        this.setState({ isRunning: false });  
-    }
+  handleIntervalChange = event => {
+    this.setState({ interval: event.target.value });
+  };
 
-
-    handleIntervalChange = (event) => {    
-        this.setState({ interval: event.target.value });  
-    }    
+  runIteration() {
+    console.log('running iteration');
+    let newBoard = this.makeEmptyBoard();
+    // TODO: Add logic for each iteration here.
+    this.board = newBoard;
+    this.setState({ cells: this.makeCells() });
+    this.timeoutHandler = window.setTimeout(() => {
+      this.runIteration();
+    }, this.state.interval);
+  }
 
   render() {
     return (
@@ -112,19 +127,23 @@ class Grid extends Component {
             />
           ))}
         </div>
-        <div className="controls">          
-        Update every 
-        <input 
-            value={this.state.interval}              
-            onChange={this.handleIntervalChange} 
-        /> 
-        msec          
-        {this.state.isRunning ?            
-            <button className="button"              
-                onClick={this.stopGame}>Stop</button> :            
-                <button className="button"              
-                onClick={this.runGame}>Run</button>          }        
-            </div>
+        <div className='controls'>
+          Update every
+          <input
+            value={this.state.interval}
+            onChange={this.handleIntervalChange}
+          />{' '}
+          msec{' '}
+          {this.state.isRunning ? (
+            <button className='button' onClick={this.stopGame}>
+              Stop
+            </button>
+          ) : (
+            <button className='button' onClick={this.runGame}>
+              Run
+            </button>
+          )}{' '}
+        </div>
       </div>
     );
   }
