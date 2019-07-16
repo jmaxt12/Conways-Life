@@ -6,6 +6,8 @@ import './Grid.css';
 class Grid extends Component {
   state = {
     cells: [],
+    interval: 100,    
+    isRunning: false,
     CELL_SIZE: 10,
     WIDTH: 500,
     HEIGHT: 500,
@@ -71,6 +73,19 @@ class Grid extends Component {
     });
   };
 
+  runGame = () => {    
+      this.setState({ isRunning: true });  
+    }
+
+    stopGame = () => {    
+        this.setState({ isRunning: false });  
+    }
+
+
+    handleIntervalChange = (event) => {    
+        this.setState({ interval: event.target.value });  
+    }    
+
   render() {
     return (
       <div>
@@ -97,6 +112,19 @@ class Grid extends Component {
             />
           ))}
         </div>
+        <div className="controls">          
+        Update every 
+        <input 
+            value={this.state.interval}              
+            onChange={this.handleIntervalChange} 
+        /> 
+        msec          
+        {this.state.isRunning ?            
+            <button className="button"              
+                onClick={this.stopGame}>Stop</button> :            
+                <button className="button"              
+                onClick={this.runGame}>Run</button>          }        
+            </div>
       </div>
     );
   }
