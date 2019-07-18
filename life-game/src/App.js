@@ -4,7 +4,7 @@ import "./App.css";
 import Grid from "./components/grid/Grid";
 import About from "./components/about/About";
 import Rules from "./components/rules/Rules";
-import Preset from "./components/preset/Preset";
+// import Preset from "./components/preset/Preset";
 
 function App() {
   return (
@@ -14,7 +14,7 @@ function App() {
       </header>
       <div className = 'topRow'>
         <Grid />
-        <Preset />
+        {/* <Preset /> */}
         <Rules />
       </div>
       <About />
