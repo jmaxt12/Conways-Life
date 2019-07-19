@@ -7,7 +7,7 @@ import { corners, stripes, half, plus } from "./presets";
 class Grid extends Component {
   state = {
     cells: [],
-    interval: 500,
+    interval: 100,
     isRunning: false,
     CELL_SIZE: 10,
     WIDTH: 500,

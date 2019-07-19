@@ -14,7 +14,6 @@ function App() {
       </header>
       <div className = 'topRow'>
         <Grid />
-        {/* <Preset /> */}
         <Rules />
       </div>
       <About />
