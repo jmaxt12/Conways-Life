@@ -106,6 +106,7 @@ class Grid extends Component {
   //   });
   // };
 
+  // clears board
   handleClear = () => {
     this.board = this.makeEmptyBoard();
     this.setState({
@@ -115,6 +116,7 @@ class Grid extends Component {
     this.stopGame();
   };
 
+  // creates corners preset
   handlePresetCorners = () => {
     for (let y = 0; y < this.rows; y++) {
       for (let x = 0; x < this.cols; x++) {
@@ -128,6 +130,7 @@ class Grid extends Component {
     });
   };
 
+  // creats stripes preset
   handlePresetStripes = () => {
     for (let y = 0; y < this.rows; y++) {
       for (let x = 0; x < this.cols; x++) {
@@ -141,6 +144,7 @@ class Grid extends Component {
     });
   };
 
+  // creates half preset
   handlePresetHalf = () => {
     for (let y = 0; y < this.rows; y++) {
       for (let x = 0; x < this.cols; x++) {
@@ -154,6 +158,7 @@ class Grid extends Component {
     });
   };
 
+  // creates plus preset
   handlePresetPlus = () => {
     for (let y = 0; y < this.rows; y++) {
       for (let x = 0; x < this.cols; x++) {
@@ -167,6 +172,7 @@ class Grid extends Component {
     });
   };
 
+  // like a preset, but randomizes board
   handleRandom = () => {
     for (let y = 0; y < this.rows; y++) {
       for (let x = 0; x < this.cols; x++) {
@@ -181,6 +187,7 @@ class Grid extends Component {
     });
   };
 
+  //runs game of life
   runIteration() {
     console.log("running iteration");
     let newBoard = this.makeEmptyBoard();
@@ -258,7 +265,6 @@ class Grid extends Component {
     return (
       <div>
         <h2>Generation: {counter}</h2>
-        <br />
         <div
           className="Board"
           style={{

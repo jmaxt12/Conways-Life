@@ -2,7 +2,7 @@ import React from "react";
 import "./App.css";
 
 import Grid from "./components/grid/Grid";
-import About from "./components/about/About";
+// import About from "./components/about/About";
 import Rules from "./components/rules/Rules";
 // import Preset from "./components/preset/Preset";
 
@@ -16,7 +16,7 @@ function App() {
         <Grid />
         <Rules />
       </div>
-      <About />
+      {/* <About /> */}
     </div>
   );
 }
