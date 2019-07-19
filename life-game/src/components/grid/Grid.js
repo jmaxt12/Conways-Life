@@ -311,12 +311,12 @@ class Grid extends Component {
           <button className="button" onClick={this.handlePresetStripes}>
             Stripes
           </button>{" "}
-          <button className="button" onClick={this.handlePresetHalf}>
-            Half
-          </button>{" "}
           <button className="button" onClick={this.handlePresetPlus}>
             Plus
           </button>
+          <button className="button" onClick={this.handlePresetHalf}>
+            Half
+          </button>{" "}
         </div>
       </div>
     );
