@@ -1,0 +1,11 @@
+.ruleList{
+    display: flex;
+    flex-direction: column;
+    text-align: left;
+    margin: 15px;
+    /* height: 30%; */
+}
+.description{
+    text-align: left;
+    margin: 15px;
+}
